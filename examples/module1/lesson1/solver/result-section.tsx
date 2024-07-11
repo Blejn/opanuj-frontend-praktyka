@@ -1,11 +1,13 @@
-import React, { memo } from 'react';
-
 interface ResultSectionProps {
   numC: number | string;
+  error: string;
 }
 
-const ResultSection = ({ numC }: ResultSectionProps) => {
-  return <div>Result: {numC}</div>;
+export const ResultSection = ({ numC, error }: ResultSectionProps) => {
+  return (
+    <div>
+      Result: {numC}
+      {error && <div>{error}</div>}
+    </div>
+  );
 };
-
-export default memo(ResultSection);

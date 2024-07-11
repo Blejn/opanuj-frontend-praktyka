@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { Input } from './components';
 
 interface EntrySectionProps {
   numA: number;
@@ -15,15 +15,11 @@ export const EntrySection = ({
 }: EntrySectionProps) => {
   return (
     <div className="grid grid-cols-2 gap-x-4">
-      <input
-        type="number"
-        className="rounded-md shadow-md p-4"
+      <Input
         value={numA}
         onChange={(e) => setNumA(parseFloat(e.target.value))}
       />
-      <input
-        type="number"
-        className="rounded-md shadow-md p-4"
+      <Input
         value={numB}
         onChange={(e) => setNumB(parseFloat(e.target.value))}
       />

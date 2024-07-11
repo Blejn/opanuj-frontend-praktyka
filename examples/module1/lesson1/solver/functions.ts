@@ -1,34 +1,31 @@
-export function adding(a: number, b: number) {
+import { Operation } from "./types/operation";
+
+export const adding =(a: number, b: number) =>{
   return a + b;
 }
 
-export function subtraction(a: number, b: number) {
+export const subtraction =(a: number, b: number)=> {
   return a - b;
 }
 
-export function multiplication(a: number, b: number) {
+export const multiplication = (a: number, b: number)=> {
   return a * b;
 }
 
-export function dividing(a: number, b: number) {
+export const dividing = (a: number, b: number) => {
   return a / b;
 }
+type MathFunction = (a:number, b:number)=>number;
 
-export const functionalities = [
-  {
-    function: adding,
-    mark: '+',
-  },
-  {
-    function: subtraction,
-    mark: '-',
-  },
-  {
-    function: multiplication,
-    mark: '*',
-  },
-  {
-    function: dividing,
-    mark: '/',
-  },
-];
+
+
+export const functionalities: Record<Operation,{func:MathFunction,mark:string}> ={
+  [Operation.ADD]: { func: adding, mark: Operation.ADD },
+  [Operation.SUBTRACT]: { func: subtraction, mark: Operation.SUBTRACT },
+  [Operation.MULTIPLY]: { func: multiplication, mark: Operation.MULTIPLY },
+  [Operation.DIVIDE]: { func: dividing, mark: Operation.DIVIDE },
+} 
+
+export const mapOperationToFunction = (mark:Operation) =>{
+  return functionalities[mark]
+}
